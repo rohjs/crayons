@@ -1,0 +1,57 @@
+.md__section {
+  width: 100%;
+  max-width: 732px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.md__editor {
+  width: 100%;
+  min-height: 24px !important;
+  border: 1px solid #e6e8eb;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: none;
+}
+
+.md__renderer {
+  min-height: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.md__renderer h1,
+.md__renderer h2,
+.md__renderer h3,
+.md__renderer h4 {
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.md__renderer h1 {
+  margin-top: 2rem;
+  font-size: 28px;
+}
+
+.md__renderer h2 {
+  margin-top: 1.5rem;
+  font-size: 24px;
+}
+
+.md__renderer h3 {
+  margin-top: 1.5rem;
+  font-size: 20px;
+}
+
+.md__renderer h4 {
+  margin-top: 1rem;
+  font-size: 18px;
+}
+
+.md__renderer h5 {
+  margin-top: 1rem;
+  font-size: 16px;
+  font-weight: 700;
+}

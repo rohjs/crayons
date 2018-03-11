@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+}
+
+html {
+  font-size: 16px;
+  color: #343a40;
+  line-height: 1.5;
+}
+
+input,
+textarea,
+button {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+button {
+  transition: opacity 150ms;
+}
+
+button:hover {
+  opacity: .5;
+}

@@ -1,0 +1,38 @@
+.color-palette {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.color-palette__input {
+  width: 100%;
+  height: 48px;
+  padding: 16px;
+  border: 1px solid #e6e8eb;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1;
+  color: #495057;
+}
+
+.color-palette__btn {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  display: inline-block;
+  height: 32px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 1px solid #0081ff;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1;
+  color: #0081ff;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: opacity 150ms;
+}
+
+.color-palette__btn:hover {
+  opacity: .5;
+}

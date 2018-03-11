@@ -1,0 +1,19 @@
+.section-creator {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  opacity: .5;
+  transition: opacity 150ms;
+}
+
+.section-creator:hover {
+  opacity: 1;
+}
+
+.section-creator button {
+  cursor: pointer;
+}
+
+.section-creator button:hover {
+  opacity: .5;
+}
