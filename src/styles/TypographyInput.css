@@ -1,0 +1,53 @@
+.typography__input {
+  width: 100%;
+  border: 1px solid #e6e8eb;
+  border-radius: 4px;
+}
+
+.typography__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: .5rem 1rem;
+  border-bottom: 1px solid #e6e8eb;
+}
+
+.typography__item {
+  display: flex;
+  align-items: center;
+}
+
+.typography__item span {
+  width: 15px;
+  height: 15px;
+}
+
+
+
+.typography__item input,
+.typography__item select {
+  min-width: 50px;
+  max-width: 115px;
+  height: 30px;
+  border: 1px solid #e6e8eb;
+  border-radius: 4px;
+  margin-left: 8px;
+  font-size: 16px;
+  line-height: 1;
+  background-color: #fff;
+}
+
+.typography__item input {
+  padding: 0 6px;
+}
+
+.typography__item button {
+  width: 32px;
+  height: 32px;
+}
+
+.typography__preview {
+  padding: 1rem;
+}

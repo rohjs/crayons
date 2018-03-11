@@ -3,7 +3,7 @@ import TypographyInput from './typography/TypographyInput'
 import TypographyBlock from './typography/TypographyBlock'
 
 const defaultTypographyStyles = {
-  fontFamily: 'SF Display',
+  fontFamily: 'Helvetica Neue',
   fontSize: 16,
   fontWeight: 400,
   lineHeight: 1.5,
