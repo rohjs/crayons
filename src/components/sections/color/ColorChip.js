@@ -1,6 +1,6 @@
 import React from 'react'
 import copyText from 'copy-text-to-clipboard'
-import '../../styles/ColorChip.css'
+import '../../../styles/ColorChip.css'
 
 class ColorChip extends React.Component {
   constructor (props) {

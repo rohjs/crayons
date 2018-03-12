@@ -1,50 +1,9 @@
 import React from 'react'
-import ColorChip from './ColorChip'
+import ColorPaletteInput from './color/ColorPaletteInput'
+import ColorChip from './color/ColorChip'
 import * as EditIcon from '../../assets/images/icon-edit.svg'
 import * as DeleteIcon from '../../assets/images/icon-delete.svg'
 import '../../styles/ColorPaletteSection.css'
-
-class ColorPaletteInput extends React.Component {
-  componentDidMount () {
-    this.input.focus()
-  }
-
-  setInputRef = input => {
-    const {
-      innerRef,
-    } = this.props
-
-    innerRef(input)
-    this.input = input
-  }
-
-  render () {
-    const {
-      updateColorInput,
-      stopEditing,
-    } = this.props
-
-    return (
-      <div className='color-palette'>
-        <input
-          type='text'
-          className='color-palette__input'
-          placeholder='#ffffff'
-          ref={this.setInputRef}
-          onChange={updateColorInput}
-          onBlur={stopEditing}
-        />
-        <button
-          type='submit'
-          className='color-palette__btn'
-          onClick={stopEditing}
-        >
-          Save
-        </button>
-      </div>
-    )
-  }
-}
 
 
 class ColorPalette extends React.Component {
@@ -63,6 +22,7 @@ class ColorPalette extends React.Component {
       isEditing: true,
     }, () => {
       this.input.value = this.state.colors
+      this.input.focus()
     })
   }
 
@@ -119,6 +79,10 @@ class ColorPalette extends React.Component {
       colorList: newColorList,
       colors: newColorList.join(', '),
     })
+  }
+
+  componentDidMount () {
+    this.input.focus()
   }
 
   render () {
