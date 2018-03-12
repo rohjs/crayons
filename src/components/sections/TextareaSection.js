@@ -1,5 +1,6 @@
 
 import React from 'react'
+import TextArea from 'better-react-textarea-autosize'
 import renderMarkdown from '../../lib/renderMarkdown'
 import '../../styles/TextareaSection.css'
 
@@ -56,18 +57,26 @@ class TextareaSection extends React.Component {
                 Markdown Editor — Press Cmd + Enter to save ❤️
               </h1>
             </header>
-            <textarea
+            <TextArea
               value={content}
               ref={textarea => this.textarea = textarea}
               onChange={this.updateContent}
               onBlur={this.stopEditing}
               onKeyDown={this.handleKeyDown}
             />
+            <footer className='md__editor__footer'>
+              <button
+                type='submit'
+                className='md__editor__btn'
+              >
+                Save
+              </button>
+            </footer>
           </section>
-          : <section className='textarea__block'>
+          : <section className='textarea__block'
+            onClick={this.startEditing}>
               <div
               dangerouslySetInnerHTML={{__html: renderMarkdown(content)}}
-              onClick={this.startEditing}
               className='md__renderer'
             />
           </section>
