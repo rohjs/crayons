@@ -261,7 +261,7 @@ class TypographyInput extends React.Component {
             className='typography__btn'
             onClick={this.stopEditing}
           >
-            Create
+            Save
           </button>
         </footer>
       </section>

@@ -37,7 +37,7 @@ class ColorPaletteInput extends React.Component {
           className='color-palette__btn'
           onClick={stopEditing}
         >
-          Create
+          Save
         </button>
       </div>
     )
