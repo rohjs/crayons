@@ -293,8 +293,8 @@ class TypographyInput extends React.Component {
               {`${typographyStyleName}`}
             </p>
           }
-          <div>
-            <div>
+          <div className='typography__language'>
+            <div className='typography__language__item'>
               <input
                 type='radio'
                 value='en'
@@ -305,7 +305,7 @@ class TypographyInput extends React.Component {
               />
               <label id='en'>English</label>
             </div>
-            <div>
+            <div className='typography__language__item'>
               <input
                 type='radio'
                 value='ko'

@@ -111,3 +111,21 @@
   opacity: .5;
   border-bottom: 1px dashed #adb5bd;
 }
+
+.typography__language {
+  display: flex;
+  align-items: center;
+}
+
+.typography__language__item {
+  display: flex;
+  align-items: center;
+}
+
+.typography__language__item:first-child {
+  margin-right: 1rem;
+}
+
+.typography__language__item input{
+  margin-right: .5rem;
+}
