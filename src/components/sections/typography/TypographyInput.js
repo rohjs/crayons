@@ -15,6 +15,7 @@ class TypographyInput extends React.Component {
 
     this.state = {
       isEditingTypographyStyleName: false,
+      language: 'en',
     }
   }
   updateTypographyStyles = () => {
@@ -78,6 +79,18 @@ class TypographyInput extends React.Component {
     updateTypographyName(this.typographyNameInput.value)
   }
 
+  updateEnglishPreview = () => {
+    this.setState({
+      language: 'en',
+    })
+  }
+
+  updateKoreanPreview = () => {
+    this.setState({
+      language: 'ko',
+    })
+  }
+
   render () {
     const {
       typographyStyleName,
@@ -91,7 +104,8 @@ class TypographyInput extends React.Component {
     } = this.props
 
     const {
-      isEditingTypographyStyleName
+      isEditingTypographyStyleName,
+      language,
     } = this.state
 
     return (
@@ -236,7 +250,15 @@ class TypographyInput extends React.Component {
             fontStyle: fontStyle,
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est at metus convallis vulputate sed...
+          {
+            language === 'en'
+            ? <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est at metus convallis vulputate sed...
+            </p>
+            : <p>
+              전인 있을 어디 바이며, 청춘의 넣는 속에 청춘이 황금시대다. 있는 이것은 얼마나 황금시대다. 끓는 놀이 그와 칼이다. 무엇을 꽃이 방지하는 그리하였는가?
+            </p>
+          }
         </div>
 
         <footer className='typography__footer'>
@@ -256,6 +278,30 @@ class TypographyInput extends React.Component {
               {`${typographyStyleName}`}
             </p>
           }
+          <div>
+            <div>
+              <input
+                type='radio'
+                value='en'
+                for='#en'
+                name='language'
+                onClick={this.updateEnglishPreview}
+                checked={language === 'en' ? true : false}
+              />
+              <label id='en'>English</label>
+            </div>
+            <div>
+              <input
+                type='radio'
+                value='ko'
+                for='#ko'
+                name='language'
+                onClick={this.updateKoreanPreview}
+                checked={language === 'ko' ? true : false}
+              />
+              <label id='ko'>한국어</label>
+            </div>
+          </div>
           <button
             type='submit'
             className='typography__btn'
