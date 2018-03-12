@@ -4,7 +4,7 @@ import TypographyBlock from './typography/TypographyBlock'
 
 const defaultTypographyStyles = {
   fontFamily: 'Helvetica Neue',
-  fontSize: 16,
+  fontSize: '16px',
   fontWeight: 400,
   lineHeight: 1.5,
   letterSpacing: 0,
