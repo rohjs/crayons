@@ -2,7 +2,6 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  opacity: .5;
   transition: opacity 150ms;
 }
 
@@ -11,9 +10,43 @@
 }
 
 .section-creator button {
+  position: relative;
   cursor: pointer;
 }
 
-.section-creator button:hover {
-  opacity: .5;
+.section-creator button .tooltip {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  padding: 4px 5px;
+  border-radius: 1px;
+  color: #ffffff;
+  white-space: nowrap;
+  background-color: #212529;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 150ms, transform 150ms;
 }
+
+.section-creator button .tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 0px;
+  height: 0px;
+  border-top: 4px solid #212529;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transform: translateX(-50%);
+}
+
+.section-creator button:hover {
+  opacity: .9;
+}
+
+.section-creator button:hover .tooltip {
+  opacity: 1;
+}
+

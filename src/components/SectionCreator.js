@@ -39,6 +39,9 @@ class SectionCreator extends React.Component {
                 src={ColorPaletteIcon}
                 alt='Color Palette'
               />
+              <span className='tooltip'>
+                Color Palette
+              </span>
             </button>
             <button
               type='button'
@@ -48,6 +51,9 @@ class SectionCreator extends React.Component {
                 src={TypographyIcon}
                 alt='Typography'
               />
+              <span className='tooltip'>
+                Typography
+              </span>
             </button>
             <button
               type='button'
@@ -57,6 +63,9 @@ class SectionCreator extends React.Component {
                 src={TextIcon}
                 alt='More'
               />
+              <span className='tooltip'>
+                Text
+              </span>
             </button>
           </React.Fragment>
         }
