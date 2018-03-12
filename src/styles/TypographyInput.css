@@ -92,8 +92,10 @@
 }
 
 .typography__btn.no-border {
+  width: 32px;
   padding: 0;
   border: none;
+  margin: 0;
 }
 
 .typography__summary {

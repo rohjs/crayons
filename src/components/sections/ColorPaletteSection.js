@@ -1,5 +1,7 @@
 import React from 'react'
 import ColorChip from './ColorChip'
+import * as EditIcon from '../../assets/images/icon-edit.svg'
+import * as DeleteIcon from '../../assets/images/icon-delete.svg'
 import '../../styles/ColorPaletteSection.css'
 
 class ColorPaletteInput extends React.Component {
@@ -151,14 +153,20 @@ class ColorPalette extends React.Component {
                   className='color-chips__btn'
                   onClick={this.startEditing}
                 >
-                  Edit
+                  <img
+                    src={EditIcon}
+                    alt='Edit'
+                  />
                 </button>
                 <button
                   type='button'
                   className='color-chips__btn'
                   onClick={this.delete}
                 >
-                  Delete
+                  <img
+                    src={DeleteIcon}
+                    alt='Delete'
+                  />
                 </button>
               </div>
             </div>

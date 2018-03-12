@@ -1,6 +1,8 @@
 import React from 'react'
 import TypographyInput from './typography/TypographyInput'
 import TypographyBlock from './typography/TypographyBlock'
+import * as EditIcon from '../../assets/images/icon-edit.svg'
+import * as DeleteIcon from '../../assets/images/icon-delete.svg'
 
 const defaultTypographyStyles = {
   typographyStyleName: '16px — Helvetica Neue',
@@ -112,16 +114,21 @@ class TypographySection extends React.Component {
                   type='button'
                   className='typography__btn no-border'
                   onClick={this.startEditing}
-                  style={{ marginRight: '1rem', }}
                 >
-                  Edit
+                  <img
+                    src={EditIcon}
+                    alt='Edit'
+                  />
                 </button>
                 <button
                   type='button'
                   className='typography__btn no-border'
                   onClick={this.delete}
                 >
-                  Delete
+                  <img
+                    src={DeleteIcon}
+                    alt='Delete'
+                  />
                 </button>
               </div>
             </div>

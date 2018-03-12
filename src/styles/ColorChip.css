@@ -1,4 +1,5 @@
 .color-chips {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   padding: 1rem;
@@ -10,13 +11,20 @@
 }
 
 .color-chips__utils {
-  width: 100%;
-  text-align: right;
+  position: absolute;
+  top: 0;
+  right: -3rem;
+  display: flex;
+  flex-direction: column;
+  width: 32px;
+}
+
+.color-chips__utils button {
+  height: 32px;
 }
 
 .color-chips__btn {
   padding: 0;
-  margin-left: 1rem;
   font-size: 13px;
   line-height: 1;
   color: #0081ff;
