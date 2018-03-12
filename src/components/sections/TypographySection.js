@@ -35,6 +35,12 @@ class TypographySection extends React.Component {
     })
   }
 
+  startEditing = () => {
+    this.setState({
+      isEditing: true,
+    })
+  }
+
   stopEditing = () => {
     this.setState({
       isEditing: false,
@@ -45,6 +51,15 @@ class TypographySection extends React.Component {
     this.setState({
       typographyStyleName: newTypographyName,
     })
+  }
+
+  delete = () => {
+    const {
+      deleteSection,
+      index,
+    } = this.props
+
+    deleteSection(index)
   }
 
   render () {
@@ -59,6 +74,7 @@ class TypographySection extends React.Component {
       color,
       fontStyle,
     } = this.state
+
     return (
       <div>
         {
@@ -75,18 +91,41 @@ class TypographySection extends React.Component {
             updateTypographyStyles={this.updateTypographyStyles}
             resetTypographyStyles={this.resetTypographyStyles}
             stopEditing={this.stopEditing}
-            />
-          : <TypographyBlock
-            typographyStyleName={typographyStyleName}
-            fontFamily={fontFamily}
-            fontSize={fontSize}
-            fontWeight={fontWeight}
-            lineHeight={lineHeight}
-            letterSpacing={letterSpacing}
-            color={color}
-            fontStyle={fontStyle}
             updateTypographyName={this.updateTypographyName}
             />
+          : <React.Fragment>
+            <div style={{position: 'relative',}}>
+              <TypographyBlock
+              typographyStyleName={typographyStyleName}
+              fontFamily={fontFamily}
+              fontSize={fontSize}
+              fontWeight={fontWeight}
+              lineHeight={lineHeight}
+              letterSpacing={letterSpacing}
+              color={color}
+              fontStyle={fontStyle}
+              updateTypographyName={this.updateTypographyName}
+              deleteSection={this.delete}
+              />
+              <div className='typography__utils'>
+                <button
+                  type='button'
+                  className='typography__btn no-border'
+                  onClick={this.startEditing}
+                  style={{ marginRight: '1rem', }}
+                >
+                  Edit
+                </button>
+                <button
+                  type='button'
+                  className='typography__btn no-border'
+                  onClick={this.delete}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </React.Fragment>
         }
       </div>
     )

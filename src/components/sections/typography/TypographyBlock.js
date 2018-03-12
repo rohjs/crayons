@@ -51,7 +51,7 @@ class TypographyBlock extends React.Component {
     })
   }
 
-  startEditing = () => {
+  startEditingTypographyStyle = () => {
     this.setState({
       isEditing: true,
     }, () => {
@@ -59,11 +59,9 @@ class TypographyBlock extends React.Component {
     })
   }
 
-  stopEditing = () => {
+  stopEditingTypographyStyle = () => {
     this.setState({
       isEditing: false,
-    }, () => {
-
     })
   }
 
@@ -85,6 +83,7 @@ class TypographyBlock extends React.Component {
       lineHeight,
       color,
       fontStyle,
+      deleteSection,
     } = this.props
 
     const {
@@ -121,35 +120,15 @@ class TypographyBlock extends React.Component {
               ref={input => this.input = input}
               value={typographyStyleName}
               onChange={this.updateTypographyName}
-              onBlur={this.stopEditing}
+              onBlur={this.stopEditingTypographyStyle}
             />
             : <p
               className='typography__summary'
-              onClick={this.startEditing}
+              onClick={this.startEditingTypographyStyle}
             >
               { typographyStyleName }
             </p>
           }
-
-          <div>
-            <button
-              type='submit'
-              className='typography__btn no-border'
-              onClick={this.stopEditing}
-              style={{ marginRight: '1rem', }}
-            >
-              Edit
-            </button>
-
-            <button
-              type='submit'
-              className='typography__btn no-border'
-              onClick={this.stopEditing}
-            >
-              Delete
-            </button>
-          </div>
-
         </footer>
       </article>
     )
