@@ -21,6 +21,11 @@
 
 .color-chips__utils button {
   height: 32px;
+  opacity: .5;
+}
+
+.color-chips__utils button:hover {
+  opacity: .25;
 }
 
 .color-chips__btn {

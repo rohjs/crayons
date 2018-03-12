@@ -96,6 +96,11 @@
   padding: 0;
   border: none;
   margin: 0;
+  opacity: .5;
+}
+
+.typography__btn.no-border:hover {
+  opacity: .25;
 }
 
 .typography__summary {
