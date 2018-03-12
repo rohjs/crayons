@@ -2,6 +2,7 @@
   width: 100%;
   border: 1px solid #e6e8eb;
   border-radius: 4px;
+  margin-bottom: 1.5rem;
 }
 
 .typography__header {
@@ -73,4 +74,9 @@
   color: #0081ff;
   cursor: pointer;
   transition: opacity 150ms;
+}
+
+.typography__btn.no-border {
+  padding: 0;
+  border: none;
 }

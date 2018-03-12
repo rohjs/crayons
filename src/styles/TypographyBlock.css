@@ -1,0 +1,40 @@
+.typography__block {
+  width: 100%;
+  border: 1px solid #e6e8eb;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.typography__preview {
+  position: relative;
+}
+
+.typography__overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(233, 236, 239, .9);
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 100ms;
+}
+
+.typography__overlay span {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 200ms, transform 200ms;
+}
+
+.typography__preview:hover .typography__overlay {
+  opacity: 1;
+}
+
+.typography__preview:hover .typography__overlay span {
+  opacity: 1;
+  transform: translateY(0);
+}
