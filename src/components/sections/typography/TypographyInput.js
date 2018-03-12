@@ -15,7 +15,10 @@ class TypographyInput extends React.Component {
       updateTypographyStyles
     } = this.props
 
+    const newTypographyStyleName = `${this.fontSize.value} — ${this.fontFamily.value}`
+
     updateTypographyStyles({
+      typographyStyleName: newTypographyStyleName,
       fontFamily: this.fontFamily.value,
       fontSize: this.fontSize.value,
       fontWeight: this.fontWeight.value,
@@ -39,11 +42,16 @@ class TypographyInput extends React.Component {
   }
 
   resetFormat = () => {
+    this.props.resetTypographyStyles()
+  }
 
+  stopEditing = () => {
+    this.props.stopEditing()
   }
 
   render () {
     const {
+      typographyStyleName,
       fontFamily,
       fontSize,
       fontWeight,
@@ -200,10 +208,12 @@ class TypographyInput extends React.Component {
 
         <footer className='typography__footer'>
           <p className='typography__summary'>
+            {`${typographyStyleName}`}
           </p>
           <button
             type='submit'
             className='typography__btn'
+            onClick={this.stopEditing}
           >
             Create
           </button>
