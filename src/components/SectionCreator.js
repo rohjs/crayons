@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/SectionCreator.css'
 import * as ColorPaletteIcon from '../assets/images/icon-color-palette.svg'
 import * as TypographyIcon from '../assets/images/icon-typography.svg'
-import * as MoreIcon from '../assets/images/icon-more.svg'
+import * as TextIcon from '../assets/images/icon-text.svg'
 
 class SectionCreator extends React.Component {
   constructor (props) {
@@ -54,7 +54,7 @@ class SectionCreator extends React.Component {
               onClick={this.setTextAreaBlock}
             >
               <img
-                src={MoreIcon}
+                src={TextIcon}
                 alt='More'
               />
             </button>
