@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "better-react-textarea-autosize": "^4.0.9",
     "color-names": "^2.0.0",
     "copy-text-to-clipboard": "^1.0.4",
     "react": "^16.2.0",
