@@ -6,7 +6,9 @@ const AppLayout = (props) => (
   <div className='app'>
     <Header />
     <main className='app__main'>
-      { props.children }
+      <div className='app__wrap'>
+        { props.children }
+      </div>
     </main>
   </div>
 )

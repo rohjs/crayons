@@ -147,22 +147,22 @@ class ColorPalette extends React.Component {
                     />
                 })
               }
-            </div>
-            <div className='color-chips__utils'>
-              <button
-                type='button'
-                className='color-chips__btn'
-                onClick={this.startEditing}
-              >
-                Edit
-              </button>
-              <button
-                type='button'
-                className='color-chips__btn'
-                onClick={this.delete}
-              >
-                Delete
-              </button>
+              <div className='color-chips__utils'>
+                <button
+                  type='button'
+                  className='color-chips__btn'
+                  onClick={this.startEditing}
+                >
+                  Edit
+                </button>
+                <button
+                  type='button'
+                  className='color-chips__btn'
+                  onClick={this.delete}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </React.Fragment>
         }

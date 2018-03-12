@@ -1,17 +1,23 @@
 .color-chips {
   display: flex;
   flex-wrap: wrap;
+  padding: 1rem;
+  padding-bottom: .875rem;
+  border: 1px solid #e6e8eb;
+  border-radius: 4px;
   margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .color-chips__utils {
-  margin-bottom: 3rem;
+  width: 100%;
   text-align: right;
 }
 
 .color-chips__btn {
   padding: 0;
-  font-size: 14px;
+  margin-left: 1rem;
+  font-size: 13px;
   line-height: 1;
   color: #0081ff;
   cursor: pointer;
