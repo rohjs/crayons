@@ -19,13 +19,6 @@
   align-items: center;
 }
 
-.typography__item span {
-  width: 15px;
-  height: 15px;
-}
-
-
-
 .typography__item input,
 .typography__item select {
   min-width: 50px;
@@ -50,4 +43,34 @@
 
 .typography__preview {
   padding: 1rem;
+}
+
+.typography__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: .875rem;
+}
+
+.typography__summary {
+  font-size: 14px;
+  line-height: 1;
+  color: #868e96;
+}
+
+.typography__btn {
+  display: inline-block;
+  height: 32px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 1px solid #0081ff;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1;
+  color: #0081ff;
+  cursor: pointer;
+  transition: opacity 150ms;
 }
