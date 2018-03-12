@@ -75,6 +75,8 @@ class TypographyBlock extends React.Component {
 
   render () {
     const {
+      previewText,
+      previewLanguage,
       typographyStyleName,
       fontFamily,
       fontSize,
@@ -106,7 +108,15 @@ class TypographyBlock extends React.Component {
             fontStyle: fontStyle,
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est at metus convallis vulputate sed...
+          {
+            previewLanguage === 'en'
+            ? <p>
+              {previewText.en}
+            </p>
+            : <p>
+              {previewText.ko}
+            </p>
+          }
 
           <div className='typography__overlay'>
             <span>{showCopyMessage}</span>
