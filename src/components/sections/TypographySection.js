@@ -3,6 +3,7 @@ import TypographyInput from './typography/TypographyInput'
 import TypographyBlock from './typography/TypographyBlock'
 
 const defaultTypographyStyles = {
+  typographyStyleName: '16px — Helvetica Neue',
   fontFamily: 'Helvetica Neue',
   fontSize: '16px',
   fontWeight: 400,
@@ -34,9 +35,16 @@ class TypographySection extends React.Component {
     })
   }
 
+  stopEditing = () => {
+    this.setState({
+      isEditing: false,
+    })
+  }
+
   render () {
     const {
       isEditing,
+      typographyStyleName,
       fontFamily,
       fontSize,
       fontWeight,
@@ -50,6 +58,7 @@ class TypographySection extends React.Component {
         {
           isEditing
           ? <TypographyInput
+            typographyStyleName={typographyStyleName}
             fontFamily={fontFamily}
             fontSize={fontSize}
             fontWeight={fontWeight}
@@ -59,8 +68,10 @@ class TypographySection extends React.Component {
             fontStyle={fontStyle}
             updateTypographyStyles={this.updateTypographyStyles}
             resetTypographyStyles={this.resetTypographyStyles}
+            stopEditing={this.stopEditing}
             />
           : <TypographyBlock
+            typographyStyleName={typographyStyleName}
             fontFamily={fontFamily}
             fontSize={fontSize}
             fontWeight={fontWeight}
