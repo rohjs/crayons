@@ -66,11 +66,12 @@ class TypographyInput extends React.Component {
             <select
               className='typography__font-family'
               onChange={this.updateTypographyStyles}
-              value={this.props.fontFamily}
+              value={fontFamily}
               ref={select => this.fontFamily = select}
             >
               <option value='Open Sans'>Open Sans</option>
               <option value='Helvetica Neue'>Helvetica Neue</option>
+              <option value='Lato'>Lato</option>
             </select>
           </div>
           <div className='typography__item'>
@@ -84,6 +85,7 @@ class TypographyInput extends React.Component {
               type='text'
               onChange={this.updateTypographyStyles}
               ref={input => this.fontSize = input}
+              value={fontSize}
               style={{ width: 55, }}
             />
           </div>
@@ -97,6 +99,7 @@ class TypographyInput extends React.Component {
             <select
               onChange={this.updateTypographyStyles}
               ref={select => this.fontWeight = select}
+              value={fontWeight}
             >
               <option value='100'>100</option>
               <option value='200'>200</option>
@@ -120,6 +123,7 @@ class TypographyInput extends React.Component {
               type='text'
               onChange={this.updateTypographyStyles}
               ref={input => this.lineHeight = input}
+              value={lineHeight}
               style={{ width: 60, }}
             />
           </div>
@@ -134,6 +138,7 @@ class TypographyInput extends React.Component {
               type='text'
               onChange={this.updateTypographyStyles}
               ref={input => this.letterSpacing = input}
+              value={letterSpacing}
               style={{ width: 60, }}
             />
           </div>
@@ -148,6 +153,7 @@ class TypographyInput extends React.Component {
               type='text'
               onChange={this.updateTypographyStyles}
               ref={input => this.color = input}
+              value={color}
               style={{ width: 85, }}
             />
           </div>
@@ -191,6 +197,17 @@ class TypographyInput extends React.Component {
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est at metus convallis vulputate sed...
         </div>
+
+        <footer className='typography__footer'>
+          <p className='typography__summary'>
+          </p>
+          <button
+            type='submit'
+            className='typography__btn'
+          >
+            Create
+          </button>
+        </footer>
       </section>
     )
   }
