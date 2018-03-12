@@ -56,10 +56,20 @@
   padding-bottom: .875rem;
 }
 
-.typography__summary {
+.typography__summary,
+.typography__summary__input {
+  padding: 0;
+  padding-bottom: 3px;
+  border: none;
+  border-bottom: 1px solid transparent;
   font-size: 14px;
   line-height: 1;
   color: #868e96;
+}
+
+.typography__summary__input {
+  flex-grow: 1;
+  margin-right: 1rem;
 }
 
 .typography__btn {
@@ -79,4 +89,13 @@
 .typography__btn.no-border {
   padding: 0;
   border: none;
+}
+
+.typography__summary {
+  cursor: pointer;
+}
+
+.typography__summary:hover {
+  opacity: .5;
+  border-bottom: 1px dashed #adb5bd;
 }

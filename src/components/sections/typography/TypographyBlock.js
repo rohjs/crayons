@@ -117,7 +117,7 @@ class TypographyBlock extends React.Component {
           {
             isEditing
             ? <input
-              className='typography__summary'
+              className='typography__summary__input'
               ref={input => this.input = input}
               value={typographyStyleName}
               onChange={this.updateTypographyName}
