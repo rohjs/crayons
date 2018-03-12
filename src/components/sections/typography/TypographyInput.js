@@ -10,6 +10,13 @@ import * as FormatResetIcon from '../../../assets/images/icon-format-reset.svg'
 import '../../../styles/TypographyInput.css'
 
 class TypographyInput extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      isEditingTypographyStyleName: false,
+    }
+  }
   updateTypographyStyles = () => {
     const {
       updateTypographyStyles
@@ -49,6 +56,28 @@ class TypographyInput extends React.Component {
     this.props.stopEditing()
   }
 
+  startEditingTypographyStyleName = () => {
+    this.setState({
+      isEditingTypographyStyleName: true,
+    }, () => {
+      this.typographyNameInput.focus()
+    })
+  }
+
+  stopEditingTypographyStyleName = () => {
+    this.setState({
+      isEditingTypographyStyleName: false,
+    })
+  }
+
+  updateTypographyStyleName = () => {
+    const {
+      updateTypographyName
+    } = this.props
+
+    updateTypographyName(this.typographyNameInput.value)
+  }
+
   render () {
     const {
       typographyStyleName,
@@ -60,6 +89,10 @@ class TypographyInput extends React.Component {
       color,
       fontStyle,
     } = this.props
+
+    const {
+      isEditingTypographyStyleName
+    } = this.state
 
     return (
       <section className='typography__input'>
@@ -207,9 +240,22 @@ class TypographyInput extends React.Component {
         </div>
 
         <footer className='typography__footer'>
-          <p className='typography__summary'>
-            {`${typographyStyleName}`}
-          </p>
+          {
+            isEditingTypographyStyleName
+            ? <input
+              className='typography__summary__input'
+              ref={input => this.typographyNameInput = input}
+              value={typographyStyleName}
+              onChange={this.updateTypographyStyleName}
+              onBlur={this.stopEditingTypographyStyleName}
+            />
+            : <p
+              className='typography__summary'
+              onClick={this.startEditingTypographyStyleName}
+            >
+              {`${typographyStyleName}`}
+            </p>
+          }
           <button
             type='submit'
             className='typography__btn'
