@@ -71,8 +71,6 @@ class ColorPalette extends React.Component {
 
     const newColors = newColorList.join(', ')
 
-    console.log(newColorList, newColors)
-
     if (newColorList.length > 0) {
       this.setState({
         isEditing: false,
