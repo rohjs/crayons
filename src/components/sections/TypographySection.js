@@ -41,6 +41,12 @@ class TypographySection extends React.Component {
     })
   }
 
+  updateTypographyName = (newTypographyName) => {
+    this.setState({
+      typographyStyleName: newTypographyName,
+    })
+  }
+
   render () {
     const {
       isEditing,
@@ -79,6 +85,7 @@ class TypographySection extends React.Component {
             letterSpacing={letterSpacing}
             color={color}
             fontStyle={fontStyle}
+            updateTypographyName={this.updateTypographyName}
             />
         }
       </div>

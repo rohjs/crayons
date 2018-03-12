@@ -7,6 +7,7 @@ class TypographyBlock extends React.Component {
     super(props)
 
     this.state = {
+      isEditing: false,
       showCopyMessage: 'Copy text styles',
     }
   }
@@ -50,6 +51,30 @@ class TypographyBlock extends React.Component {
     })
   }
 
+  startEditing = () => {
+    this.setState({
+      isEditing: true,
+    }, () => {
+      this.input.focus()
+    })
+  }
+
+  stopEditing = () => {
+    this.setState({
+      isEditing: false,
+    }, () => {
+
+    })
+  }
+
+  updateTypographyName = () => {
+    const {
+      updateTypographyName,
+    } = this.props
+
+    updateTypographyName(this.input.value)
+  }
+
   render () {
     const {
       typographyStyleName,
@@ -63,7 +88,8 @@ class TypographyBlock extends React.Component {
     } = this.props
 
     const {
-      showCopyMessage
+      showCopyMessage,
+      isEditing,
     } = this.state
 
     return (
@@ -88,9 +114,22 @@ class TypographyBlock extends React.Component {
           </div>
         </div>
         <footer className='typography__footer'>
-          <p className='typography__summary'>
-            { typographyStyleName }
-          </p>
+          {
+            isEditing
+            ? <input
+              className='typography__summary'
+              ref={input => this.input = input}
+              value={typographyStyleName}
+              onChange={this.updateTypographyName}
+              onBlur={this.stopEditing}
+            />
+            : <p
+              className='typography__summary'
+              onClick={this.startEditing}
+            >
+              { typographyStyleName }
+            </p>
+          }
 
           <div>
             <button
