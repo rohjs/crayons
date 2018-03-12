@@ -78,3 +78,7 @@
   opacity: .5;
   border-bottom: 1px dashed #adb5bd;
 }
+
+.color-chip__input:focus {
+  color: #343a40;
+}

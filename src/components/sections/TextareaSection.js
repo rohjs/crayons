@@ -9,7 +9,7 @@ class TextareaSection extends React.Component {
     super(props)
 
     this.state = {
-      isEditing: false,
+      isEditing: true,
       content: '',
     }
   }
@@ -50,19 +50,27 @@ class TextareaSection extends React.Component {
       <section className='md__section'>
         {
           isEditing
-          ? <textarea
-            className='md__editor'
-            value={content}
-            ref={textarea => this.textarea = textarea}
-            onChange={this.updateContent}
-            onBlur={this.stopEditing}
-            onKeyDown={this.handleKeyDown}
-          />
-          : <div
-            dangerouslySetInnerHTML={{__html: renderMarkdown(content)}}
-            onClick={this.startEditing}
-            className='md__renderer'
-          />
+          ? <section className='md__editor'>
+            <header className='md__editor__header'>
+              <h1>
+                Markdown Editor — Press Cmd + Enter to save ❤️
+              </h1>
+            </header>
+            <textarea
+              value={content}
+              ref={textarea => this.textarea = textarea}
+              onChange={this.updateContent}
+              onBlur={this.stopEditing}
+              onKeyDown={this.handleKeyDown}
+            />
+          </section>
+          : <section className='textarea__block'>
+              <div
+              dangerouslySetInnerHTML={{__html: renderMarkdown(content)}}
+              onClick={this.startEditing}
+              className='md__renderer'
+            />
+          </section>
         }
       </section>
     )
