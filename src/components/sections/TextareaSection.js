@@ -30,15 +30,29 @@ class TextareaSection extends React.Component {
   }
 
   stopEditing = () => {
-    this.setState({
-      isEditing: false,
-    })
+    const content = this.state.content
+    if (this.state.content !== '') {
+      this.setState({
+        isEditing: false,
+      })
+    } else {
+      const {
+        deleteSection,
+        index,
+      } = this.props
+
+      deleteSection(index)
+    }
   }
 
   handleKeyDown = (e) => {
     if (e.key === 'Enter' && e.metaKey) {
       this.stopEditing()
     }
+  }
+
+  componentDidMount () {
+    this.textarea.focus()
   }
 
   render () {
