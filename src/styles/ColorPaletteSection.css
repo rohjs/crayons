@@ -32,7 +32,3 @@
   transform: translateY(-50%);
   transition: opacity 150ms;
 }
-
-.color-palette__btn:hover {
-  opacity: .5;
-}
