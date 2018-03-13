@@ -27,10 +27,7 @@ class ColorPalette extends React.Component {
   }
 
   stopEditing = (colors) => {
-    const newColorList = this.state.colors.split(',')
-      .map(color => color.trim())
-      .filter(color => color.length > 0)
-
+    const newColorList = this.state.colors.replace(/\s/g, "").match(/#[\da-f]{6}|#[\da-f]{3}|rgb\(\d{1,3},\d{1,3},\d{1,3}\)/g) || []
     const newColors = newColorList.join(', ')
 
     if (newColorList.length > 0) {
