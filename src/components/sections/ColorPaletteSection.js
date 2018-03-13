@@ -5,6 +5,7 @@ import * as EditIcon from '../../assets/images/icon-edit.svg'
 import * as DeleteIcon from '../../assets/images/icon-delete.svg'
 import '../../styles/ColorPaletteSection.css'
 
+const colorRegExp = /#[\da-f]{6}|#[\da-f]{3}|rgb\(\d{1,3},\d{1,3},\d{1,3}\)|rgba\(\d{1,3},\d{1,3},\d{1,3},(\d|\d?\.\d)\)/g;
 
 class ColorPalette extends React.Component {
   constructor (props) {
@@ -27,7 +28,7 @@ class ColorPalette extends React.Component {
   }
 
   stopEditing = (colors) => {
-    const newColorList = this.state.colors.replace(/\s/g, "").match(/#[\da-f]{6}|#[\da-f]{3}|rgb\(\d{1,3},\d{1,3},\d{1,3}\)/g) || []
+    const newColorList = this.state.colors.replace(/\s/g, "").match(colorRegExp) || []
     const newColors = newColorList.join(', ')
 
     if (newColorList.length > 0) {
