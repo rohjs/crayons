@@ -25,7 +25,7 @@ class ColorPaletteInput extends React.Component {
         <input
           type='text'
           className='color-palette__input'
-          placeholder='#ffffff'
+          placeholder='i.e. #ffffff, rgb(255, 255, 255), rgba(255,  255, 255, .1)...'
           ref={this.setInputRef}
           onChange={updateColorInput}
           onBlur={stopEditing}
