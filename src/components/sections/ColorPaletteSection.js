@@ -28,7 +28,7 @@ class ColorPalette extends React.Component {
   }
 
   stopEditing = (colors) => {
-    const newColorList = this.state.colors.replace(/\s/g, "").match(colorRegExp) || []
+    const newColorList = this.state.colors.toLowerCase().replace(/\s/g, "").match(colorRegExp) || []
     const newColors = newColorList.join(', ')
 
     if (newColorList.length > 0) {
