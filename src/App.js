@@ -1,10 +1,20 @@
 import React from 'react'
+import firebase from 'firebase'
 import AppLayout from './components/layout/AppLayout'
 import SectionCreator from './components/SectionCreator'
 import './styles/App.css'
 import ColorPaletteSection from './components/sections/ColorPaletteSection'
 import TypographySection from './components/sections/TypographySection'
 import TextareaSection from './components/sections/TextareaSection'
+
+const config = {
+  apiKey: "AIzaSyDco2xG0mVLFctYGd5WfXAs79l3VpWD_g4",
+  authDomain: "crayons-744e6.firebaseapp.com",
+  databaseURL: "https://crayons-744e6.firebaseio.com",
+  projectId: "crayons-744e6",
+  storageBucket: "crayons-744e6.appspot.com",
+  messagingSenderId: "211890910579",
+};
 
 class App extends React.Component {
   constructor (props) {
@@ -39,7 +49,7 @@ class App extends React.Component {
     })
   }
 
-  render() {
+  render () {
     return (
       <AppLayout>
 
