@@ -67,8 +67,12 @@ class App extends React.Component {
   }
 
   render () {
+    const {
+      styleguideTitle,
+    } = this.state
+
     return (
-      <AppLayout>
+      <AppLayout styleguideTitle={styleguideTitle}>
 
         <header className='page__header'>
           {
@@ -76,10 +80,10 @@ class App extends React.Component {
             ? <input
               type='text'
               className='page__title'
-              placeholder='Your Styleguide'
+              placeholder='Untitled Styleguide'
               onChange={this.updateTitle}
               onBlur={this.stopEditingTitle}
-              defaultValue={this.state.styleguideTitle}
+              defaultValue={styleguideTitle}
               ref={input => this.titleInput = input}
             />
             : <h1

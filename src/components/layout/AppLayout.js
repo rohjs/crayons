@@ -4,7 +4,7 @@ import '../../styles/AppLayout.css'
 
 const AppLayout = (props) => (
   <div className='app'>
-    <Header />
+    <Header title={props.styleguideTitle} />
     <main className='app__main'>
       <div className='app__wrap'>
         { props.children }

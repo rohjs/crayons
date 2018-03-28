@@ -1,10 +1,14 @@
 import React from 'react'
 import '../../styles/Header.css'
 
-const Header = (props) => (
+const Header = ({ title }) => (
   <header className='app__header'>
     <h1 className='app__title'>
-      Name of the styleguide
+      {
+        title
+        ? title
+        : 'Untitled Styleguide'
+      }
     </h1>
 
     <button
