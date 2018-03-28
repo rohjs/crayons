@@ -18,6 +18,7 @@
 }
 
 .page__title {
+  min-height: 52.8px;
   margin-bottom: 56px;
   font-size: 44px;
   font-weight: 400;

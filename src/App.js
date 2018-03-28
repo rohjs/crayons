@@ -12,8 +12,28 @@ class App extends React.Component {
     super(props)
 
     this.state = {
+      isEditingTitle: true,
+      styleguideTitle: '',
       sections: [],
     }
+  }
+
+  startEditingTitle = () => {
+    this.setState({
+      isEditing: true,
+    })
+  }
+
+  stopEditingTitle = () => {
+    this.setState({
+      isEditing: false,
+    })
+  }
+
+  updateTitle = () => {
+    this.setState({
+      styleguideTitle: this.titleInput.value,
+    })
   }
 
   saveContent = (e) => {
@@ -51,9 +71,24 @@ class App extends React.Component {
       <AppLayout>
 
         <header className='page__header'>
-          <h1 className='page__title'>
-            Name of the styleguide
-          </h1>
+          {
+            this.state.isEditingTitle
+            ? <input
+              type='text'
+              className='page__title'
+              placeholder='Your Styleguide'
+              onChange={this.updateTitle}
+              onBlur={this.stopEditingTitle}
+              defaultValue={this.state.styleguideTitle}
+              ref={input => this.titleInput = input}
+            />
+            : <h1
+              className='page__title'
+              onClick={this.startEditingTitle}
+            >
+              { this.props.styleguideTitle }
+            </h1>
+          }
         </header>
 
         <section>
