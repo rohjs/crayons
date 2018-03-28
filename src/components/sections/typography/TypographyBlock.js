@@ -41,7 +41,7 @@ class TypographyBlock extends React.Component {
       if (this.timer) {
         window.clearTimeout(this.timer)
       }
-      this.timer = window.setTimeout(this.resetCopyMessage, 2000)
+      this.timer = window.setTimeout(this.resetCopyMessage, 1500)
     })
   }
 
