@@ -39,6 +39,7 @@
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 200ms, transform 200ms;
+  color: #343a40;
 }
 
 .typography__preview:hover .typography__overlay {

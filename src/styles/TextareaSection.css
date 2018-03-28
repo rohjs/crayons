@@ -100,6 +100,14 @@
   font-weight: 700;
 }
 
+.md__renderer:first-child h1,
+.md__renderer:first-child h2,
+.md__renderer:first-child h3,
+.md__renderer:first-child h4,
+.md__renderer:first-child h5 {
+  margin-top: 0;
+}
+
 
 .textarea__block {
   position: relative;
