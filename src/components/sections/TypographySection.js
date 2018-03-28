@@ -67,7 +67,7 @@ class TypographySection extends React.Component {
     })
   }
 
-  delete = () => {
+  deleteSection = () => {
     const {
       deleteSection,
       index,
@@ -110,6 +110,7 @@ class TypographySection extends React.Component {
             stopEditing={this.stopEditing}
             updatePreviewLanguage={this.updatePreviewLanguage}
             updateTypographyName={this.updateTypographyName}
+            deleteSection={this.deleteSection}
             />
           : <React.Fragment>
             <div style={{position: 'relative',}}>

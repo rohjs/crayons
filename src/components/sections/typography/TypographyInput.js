@@ -19,6 +19,16 @@ class TypographyInput extends React.Component {
     }
   }
 
+  
+  delete = () => {
+    const {
+      deleteSection,
+      index,
+    } = this.props
+
+    deleteSection(index)
+  }
+
   updateTypographyStyles = () => {
     const {
       updateTypographyStyles
@@ -317,6 +327,13 @@ class TypographyInput extends React.Component {
               <label id='ko'>한국어</label>
             </div>
           </div>
+          <button
+            type='submit'
+            className='typography__btn'
+            onClick={this.props.deleteSection}
+          >
+            Cancel
+          </button>
           <button
             type='submit'
             className='typography__btn'
