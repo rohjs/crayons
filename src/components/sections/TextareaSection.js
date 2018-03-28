@@ -3,6 +3,8 @@ import React from 'react'
 import TextArea from 'better-react-textarea-autosize'
 import renderMarkdown from '../../lib/renderMarkdown'
 import '../../styles/TextareaSection.css'
+import * as EditIcon from '../../assets/images/icon-edit.svg'
+import * as DeleteIcon from '../../assets/images/icon-delete.svg'
 
 
 class TextareaSection extends React.Component {
@@ -31,6 +33,7 @@ class TextareaSection extends React.Component {
 
   stopEditing = () => {
     const content = this.state.content
+
     if (this.state.content !== '') {
       this.setState({
         isEditing: false,
@@ -43,6 +46,15 @@ class TextareaSection extends React.Component {
 
       deleteSection(index)
     }
+  }
+
+  deleteSection = () => {
+    const {
+      deleteSection,
+      index,
+    } = this.props
+
+    deleteSection(index)
   }
 
   handleKeyDown = (e) => {
@@ -89,10 +101,32 @@ class TextareaSection extends React.Component {
           </section>
           : <section className='textarea__block'
             onClick={this.startEditing}>
-              <div
-              dangerouslySetInnerHTML={{__html: renderMarkdown(content)}}
-              className='md__renderer'
+            <div
+            dangerouslySetInnerHTML={{__html: renderMarkdown(content)}}
+            className='md__renderer'
             />
+            <div className='typography__utils'>
+              <button
+                type='button'
+                className='typography__btn no-border'
+                onClick={this.startEditing}
+              >
+                <img
+                  src={EditIcon}
+                  alt='Edit'
+                />
+              </button>
+              <button
+                type='button'
+                className='typography__btn no-border'
+                onClick={this.deleteSection}
+              >
+                <img
+                  src={DeleteIcon}
+                  alt='Delete'
+                />
+              </button>
+            </div>
           </section>
         }
       </section>
