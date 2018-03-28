@@ -142,7 +142,7 @@ class TypographySection extends React.Component {
                 <button
                   type='button'
                   className='typography__btn no-border'
-                  onClick={this.delete}
+                  onClick={this.deleteSection}
                 >
                   <img
                     src={DeleteIcon}
