@@ -8,6 +8,7 @@ import * as ColorIcon from '../../../assets/images/icon-color.svg'
 import * as ItalicIcon from '../../../assets/images/icon-italic.svg'
 import * as FormatResetIcon from '../../../assets/images/icon-format-reset.svg'
 import '../../../styles/TypographyInput.css'
+import googleFonts from "../../../assets/google-fonts.json"
 
 class TypographyInput extends React.Component {
   constructor (props) {
@@ -149,9 +150,17 @@ class TypographyInput extends React.Component {
               value={fontFamily}
               ref={select => this.fontFamily = select}
             >
-              <option value='Open Sans'>Open Sans</option>
-              <option value='Helvetica Neue'>Helvetica Neue</option>
-              <option value='Lato'>Lato</option>
+              {
+                Object.entries(googleFonts)
+                  .map(([font, {url}], index) => {
+                    return <option
+                      key='index'
+                      value={font}
+                    >
+                      {font}
+                    </option>
+                  })
+              }
             </select>
           </div>
           <div className='typography__item'>
