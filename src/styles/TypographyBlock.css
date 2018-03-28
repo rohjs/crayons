@@ -13,6 +13,10 @@
   position: relative;
 }
 
+.typography__preview p {
+  font-family: inherit;
+}
+
 .typography__overlay {
   position: absolute;
   top: 0;
