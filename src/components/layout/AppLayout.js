@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './Header'
+import Footer from './Footer'
 import '../../styles/AppLayout.css'
 
 const AppLayout = (props) => (
@@ -10,6 +11,7 @@ const AppLayout = (props) => (
         { props.children }
       </div>
     </main>
+    <Footer />
   </div>
 )
 
