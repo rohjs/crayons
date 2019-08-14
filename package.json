@@ -6,7 +6,6 @@
     "better-react-textarea-autosize": "^4.0.9",
     "color-names": "^2.0.0",
     "copy-text-to-clipboard": "^2.1.0",
-    "firebase": "^6.3.5",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
@@ -20,5 +19,18 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "firebase deploy"
-  }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {}
 }

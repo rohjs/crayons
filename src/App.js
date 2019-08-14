@@ -1,10 +1,10 @@
 import React from 'react'
 import AppLayout from './components/layout/AppLayout'
 import SectionCreator from './components/SectionCreator'
-import './styles/App.css'
 import ColorPaletteSection from './components/sections/ColorPaletteSection'
 import TypographySection from './components/sections/TypographySection'
 import TextareaSection from './components/sections/TextareaSection'
+import './styles/App.css'
 
 class App extends React.Component {
   constructor(props) {

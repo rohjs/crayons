@@ -4,6 +4,12 @@ import * as ColorPaletteIcon from '../assets/images/icon-color-palette.svg'
 import * as TypographyIcon from '../assets/images/icon-typography.svg'
 import * as TextIcon from '../assets/images/icon-text.svg'
 
+export const sectionTypes = {
+  COLOR_PALLETTE_SECTION: 'COLOR_PALLETTE_SECTION',
+  TYPPOGRAPHY_RULES_SECTION: 'TYPPOGRAPHY_RULES_SECTION',
+  TEXT_CONTENT_SECTION: 'TEXT_CONTENT_SECTION'
+}
+
 class SectionCreator extends React.Component {
   constructor(props) {
     super(props)
@@ -13,16 +19,16 @@ class SectionCreator extends React.Component {
     }
   }
 
-  setColorPaletteBlock = () => {
-    this.props.addSection('color-palette')
+  setColorPaletteSection = () => {
+    this.props.addSection(sectionTypes.COLOR_PALLETTE_SECTION)
   }
 
-  setTypographyBlock = () => {
-    this.props.addSection('typography')
+  setTypographyRulesContent = () => {
+    this.props.addSection(sectionTypes.TYPPOGRAPHY_RULES_SECTION)
   }
 
-  setTextAreaBlock = () => {
-    this.props.addSection('textarea')
+  setTextContentSection = () => {
+    this.props.addSection(sectionTypes.TEXT_CONTENT_SECTION)
   }
 
   render() {
@@ -30,15 +36,15 @@ class SectionCreator extends React.Component {
       <section className="section-creator">
         {this.state.sectionMode === null && (
           <React.Fragment>
-            <button type="button" onClick={this.setColorPaletteBlock}>
+            <button type="button" onClick={this.setColorPaletteSection}>
               <img src={ColorPaletteIcon} alt="Color Palette" />
               <span className="tooltip">Color Palette</span>
             </button>
-            <button type="button" onClick={this.setTypographyBlock}>
+            <button type="button" onClick={this.setTypographyRulesContent}>
               <img src={TypographyIcon} alt="Typography" />
               <span className="tooltip">Typography</span>
             </button>
-            <button type="button" onClick={this.setTextAreaBlock}>
+            <button type="button" onClick={this.setTextContentSection}>
               <img src={TextIcon} alt="More" />
               <span className="tooltip">Text</span>
             </button>
