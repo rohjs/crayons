@@ -3,12 +3,12 @@ import copyText from 'copy-text-to-clipboard'
 import '../../../styles/TypographyBlock.css'
 
 class TypographyBlock extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
       isEditing: false,
-      showCopyMessage: 'Copy text styles',
+      showCopyMessage: 'Copy text styles'
     }
   }
 
@@ -20,7 +20,7 @@ class TypographyBlock extends React.Component {
       letterSpacing,
       lineHeight,
       color,
-      fontStyle,
+      fontStyle
     } = this.props
 
     const textStyles = `{
@@ -35,45 +35,49 @@ class TypographyBlock extends React.Component {
 
     copyText(textStyles)
 
-    this.setState({
-      showCopyMessage: 'Copied!',
-    }, () => {
-      if (this.timer) {
-        window.clearTimeout(this.timer)
+    this.setState(
+      {
+        showCopyMessage: 'Copied!'
+      },
+      () => {
+        if (this.timer) {
+          window.clearTimeout(this.timer)
+        }
+        this.timer = window.setTimeout(this.resetCopyMessage, 1500)
       }
-      this.timer = window.setTimeout(this.resetCopyMessage, 1500)
-    })
+    )
   }
 
   resetCopyMessage = () => {
     this.setState({
-      showCopyMessage: 'Copy text styles',
+      showCopyMessage: 'Copy text styles'
     })
   }
 
   startEditingTypographyStyle = () => {
-    this.setState({
-      isEditing: true,
-    }, () => {
-      this.input.focus()
-    })
+    this.setState(
+      {
+        isEditing: true
+      },
+      () => {
+        this.input.focus()
+      }
+    )
   }
 
   stopEditingTypographyStyle = () => {
     this.setState({
-      isEditing: false,
+      isEditing: false
     })
   }
 
   updateTypographyName = () => {
-    const {
-      updateTypographyName,
-    } = this.props
+    const { updateTypographyName } = this.props
 
     updateTypographyName(this.input.value)
   }
 
-  render () {
+  render() {
     const {
       previewText,
       previewLanguage,
@@ -85,18 +89,15 @@ class TypographyBlock extends React.Component {
       lineHeight,
       color,
       fontStyle,
-      deleteSection,
+      deleteSection
     } = this.props
 
-    const {
-      showCopyMessage,
-      isEditing,
-    } = this.state
+    const { showCopyMessage, isEditing } = this.state
 
     return (
-      <article className='typography__block'>
+      <article className="typography__block">
         <div
-          className='typography__preview'
+          className="typography__preview"
           onClick={this.copyTextStyles}
           style={{
             fontFamily: fontFamily,
@@ -105,40 +106,36 @@ class TypographyBlock extends React.Component {
             lineHeight: lineHeight,
             letterSpacing: letterSpacing,
             color: color,
-            fontStyle: fontStyle,
+            fontStyle: fontStyle
           }}
         >
-          {
-            previewLanguage === 'en'
-            ? <p>
-              {previewText.en}
-            </p>
-            : <p>
-              {previewText.ko}
-            </p>
-          }
+          {previewLanguage === 'en' ? (
+            <p>{previewText.en}</p>
+          ) : (
+            <p>{previewText.ko}</p>
+          )}
 
-          <div className='typography__overlay'>
+          <div className="typography__overlay">
             <span>{showCopyMessage}</span>
           </div>
         </div>
-        <footer className='typography__footer'>
-          {
-            isEditing
-            ? <input
-              className='typography__summary__input'
-              ref={input => this.input = input}
+        <footer className="typography__footer">
+          {isEditing ? (
+            <input
+              className="typography__summary__input"
+              ref={input => (this.input = input)}
               value={typographyStyleName}
               onChange={this.updateTypographyName}
               onBlur={this.stopEditingTypographyStyle}
             />
-            : <p
-              className='typography__summary'
+          ) : (
+            <p
+              className="typography__summary"
               onClick={this.startEditingTypographyStyle}
             >
-              { typographyStyleName }
+              {typographyStyleName}
             </p>
-          }
+          )}
         </footer>
       </article>
     )

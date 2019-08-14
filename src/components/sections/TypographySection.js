@@ -13,70 +13,69 @@ const defaultTypographyStyles = {
   lineHeight: 1.5,
   letterSpacing: 0,
   color: '#000000',
-  fontStyle: 'normal',
+  fontStyle: 'normal'
 }
 
 const previewText = {
-  en: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est at metus convallis vulputate sed...',
-  ko: '전인 있을 어디 바이며, 청춘의 넣는 속에 청춘이 황금시대다. 있는 이것은 얼마나 황금시대다. 끓는 놀이 그와 칼이다. 무엇을 꽃이 방지하는 그리하였는가?',
+  en:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut est at metus convallis vulputate sed...',
+  ko:
+    '전인 있을 어디 바이며, 청춘의 넣는 속에 청춘이 황금시대다. 있는 이것은 얼마나 황금시대다. 끓는 놀이 그와 칼이다. 무엇을 꽃이 방지하는 그리하였는가?'
 }
 
 class TypographySection extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
       isEditing: true,
-      ...defaultTypographyStyles,
+      ...defaultTypographyStyles
     }
   }
 
-  updateTypographyStyles = (styles) => {
+  updateTypographyStyles = styles => {
     this.setState({
-      ...styles,
+      ...styles
     })
   }
 
   resetTypographyStyles = () => {
     this.setState({
-      ...defaultTypographyStyles,
+      ...defaultTypographyStyles
     })
   }
 
   startEditing = () => {
     this.setState({
-      isEditing: true,
+      isEditing: true
     })
   }
 
   stopEditing = () => {
     this.setState({
-      isEditing: false,
+      isEditing: false
     })
   }
 
-  updateTypographyName = (newTypographyName) => {
+  updateTypographyName = newTypographyName => {
     this.setState({
-      typographyStyleName: newTypographyName,
+      typographyStyleName: newTypographyName
     })
   }
 
-  updatePreviewLanguage = (lang) => {
+  updatePreviewLanguage = lang => {
     this.setState({
-      previewLanguage: lang,
+      previewLanguage: lang
     })
   }
 
   deleteSection = () => {
-    const {
-      deleteSection,
-      index,
-    } = this.props
+    const { deleteSection, index } = this.props
 
     deleteSection(index)
   }
 
-  render () {
+  render() {
     const {
       isEditing,
       previewLanguage,
@@ -87,14 +86,13 @@ class TypographySection extends React.Component {
       letterSpacing,
       lineHeight,
       color,
-      fontStyle,
+      fontStyle
     } = this.state
 
     return (
       <div>
-        {
-          isEditing
-          ? <TypographyInput
+        {isEditing ? (
+          <TypographyInput
             previewText={previewText}
             previewLanguage={previewLanguage}
             typographyStyleName={typographyStyleName}
@@ -111,48 +109,43 @@ class TypographySection extends React.Component {
             updatePreviewLanguage={this.updatePreviewLanguage}
             updateTypographyName={this.updateTypographyName}
             deleteSection={this.deleteSection}
-            />
-          : <React.Fragment>
-            <div style={{position: 'relative',}}>
+          />
+        ) : (
+          <React.Fragment>
+            <div style={{ position: 'relative' }}>
               <TypographyBlock
-              previewText={previewText}
-              previewLanguage={previewLanguage}
-              typographyStyleName={typographyStyleName}
-              fontFamily={fontFamily}
-              fontSize={fontSize}
-              fontWeight={fontWeight}
-              lineHeight={lineHeight}
-              letterSpacing={letterSpacing}
-              color={color}
-              fontStyle={fontStyle}
-              updateTypographyName={this.updateTypographyName}
-              deleteSection={this.delete}
+                previewText={previewText}
+                previewLanguage={previewLanguage}
+                typographyStyleName={typographyStyleName}
+                fontFamily={fontFamily}
+                fontSize={fontSize}
+                fontWeight={fontWeight}
+                lineHeight={lineHeight}
+                letterSpacing={letterSpacing}
+                color={color}
+                fontStyle={fontStyle}
+                updateTypographyName={this.updateTypographyName}
+                deleteSection={this.delete}
               />
-              <div className='typography__utils'>
+              <div className="typography__utils">
                 <button
-                  type='button'
-                  className='typography__btn no-border'
+                  type="button"
+                  className="typography__btn no-border"
                   onClick={this.startEditing}
                 >
-                  <img
-                    src={EditIcon}
-                    alt='Edit'
-                  />
+                  <img src={EditIcon} alt="Edit" />
                 </button>
                 <button
-                  type='button'
-                  className='typography__btn no-border'
+                  type="button"
+                  className="typography__btn no-border"
                   onClick={this.deleteSection}
                 >
-                  <img
-                    src={DeleteIcon}
-                    alt='Delete'
-                  />
+                  <img src={DeleteIcon} alt="Delete" />
                 </button>
               </div>
             </div>
           </React.Fragment>
-        }
+        )}
       </div>
     )
   }

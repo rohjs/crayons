@@ -3,26 +3,29 @@ import copyText from 'copy-text-to-clipboard'
 import '../../../styles/ColorChip.css'
 
 class ColorChip extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
       showCopyMessage: 'Copy hex code',
-      isEditing: false,
+      isEditing: false
     }
   }
 
   copyHexCode = () => {
     copyText(this.props.hexCode)
 
-    this.setState({
-      showCopyMessage: 'Copied!',
-    }, () => {
-      if (this.timer) {
-        window.clearTimeout(this.timer)
+    this.setState(
+      {
+        showCopyMessage: 'Copied!'
+      },
+      () => {
+        if (this.timer) {
+          window.clearTimeout(this.timer)
+        }
+        this.timer = window.setTimeout(this.resetCopyMessage, 1500)
       }
-      this.timer = window.setTimeout(this.resetCopyMessage, 1500)
-    })
+    )
   }
 
   resetCopyMessage = () => {
@@ -32,65 +35,58 @@ class ColorChip extends React.Component {
   }
 
   startEditing = () => {
-    this.setState({
-      isEditing: true,
-    }, () => {
-      this.input.focus()
-    })
+    this.setState(
+      {
+        isEditing: true
+      },
+      () => {
+        this.input.focus()
+      }
+    )
   }
 
   stopEditing = () => {
     this.setState({
-      isEditing: false,
+      isEditing: false
     })
   }
 
   updateNewHexCode = () => {
-    const {
-      index,
-      updateNewHexCode
-    } = this.props
+    const { index, updateNewHexCode } = this.props
 
     const newHexCode = this.input.value
 
     updateNewHexCode(index, newHexCode)
   }
 
-  render () {
-    const {
-      hexCode,
-    } = this.props
+  render() {
+    const { hexCode } = this.props
 
-    const {
-      showCopyMessage,
-      isEditing,
-    } = this.state
+    const { showCopyMessage, isEditing } = this.state
 
     return (
-      <article className='color-chip'>
-        <div className='color-chip__block'
+      <article className="color-chip">
+        <div
+          className="color-chip__block"
           style={{ backgroundColor: hexCode }}
-          onClick={this.copyHexCode}>
-          <span>
-            {showCopyMessage}
-          </span>
+          onClick={this.copyHexCode}
+        >
+          <span>{showCopyMessage}</span>
         </div>
-        {
-          isEditing
-          ? <input
-            type='text'
-            className='color-chip__input'
+        {isEditing ? (
+          <input
+            type="text"
+            className="color-chip__input"
             value={hexCode}
-            ref={input => this.input = input}
+            ref={input => (this.input = input)}
             onChange={this.updateNewHexCode}
             onBlur={this.stopEditing}
-            />
-          : <h1
-            className='color-chip__name'
-            onClick={this.startEditing}>
-            { hexCode }
+          />
+        ) : (
+          <h1 className="color-chip__name" onClick={this.startEditing}>
+            {hexCode}
           </h1>
-        }
+        )}
       </article>
     )
   }

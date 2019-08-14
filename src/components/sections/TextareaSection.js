@@ -1,4 +1,3 @@
-
 import React from 'react'
 import TextArea from 'better-react-textarea-autosize'
 import renderMarkdown from '../../lib/renderMarkdown'
@@ -6,129 +5,113 @@ import '../../styles/TextareaSection.css'
 import * as EditIcon from '../../assets/images/icon-edit.svg'
 import * as DeleteIcon from '../../assets/images/icon-delete.svg'
 
-
 class TextareaSection extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
       isEditing: true,
-      content: '',
+      content: ''
     }
   }
 
   updateContent = () => {
     this.setState({
-      content: this.textarea.value,
+      content: this.textarea.value
     })
   }
 
   startEditing = () => {
-    this.setState({
-      isEditing: true,
-    }, () => {
-      this.textarea.focus()
-    })
+    this.setState(
+      {
+        isEditing: true
+      },
+      () => {
+        this.textarea.focus()
+      }
+    )
   }
 
   stopEditing = () => {
-    const content = this.state.content
+    const { content } = this.state
 
-    if (this.state.content !== '') {
+    if (content !== '') {
       this.setState({
-        isEditing: false,
+        isEditing: false
       })
     } else {
-      const {
-        deleteSection,
-        index,
-      } = this.props
+      const { deleteSection, index } = this.props
 
       deleteSection(index)
     }
   }
 
   deleteSection = () => {
-    const {
-      deleteSection,
-      index,
-    } = this.props
+    const { deleteSection, index } = this.props
 
     deleteSection(index)
   }
 
-  handleKeyDown = (e) => {
+  handleKeyDown = e => {
     if (e.key === 'Enter' && e.metaKey) {
       this.stopEditing()
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.textarea.focus()
   }
 
-  render () {
-    const {
-      isEditing,
-      content,
-    } = this.state
+  render() {
+    const { isEditing, content } = this.state
 
     return (
-      <section className='md__section'>
-        {
-          isEditing
-          ? <section className='md__editor'>
-            <header className='md__editor__header'>
+      <section className="md__section">
+        {isEditing ? (
+          <section className="md__editor">
+            <header className="md__editor__header">
               <h1>
-                Markdown Editor — Press Cmd + Enter to save ❤️
+                Markdown Editor — Press Cmd + Enter to save{' '}
+                <span role="img">❤️</span>
               </h1>
             </header>
             <TextArea
               value={content}
-              ref={textarea => this.textarea = textarea}
+              ref={textarea => (this.textarea = textarea)}
               onChange={this.updateContent}
               onBlur={this.stopEditing}
               onKeyDown={this.handleKeyDown}
             />
-            <footer className='md__editor__footer'>
-              <button
-                type='submit'
-                className='md__editor__btn'
-              >
+            <footer className="md__editor__footer">
+              <button type="submit" className="md__editor__btn">
                 Save
               </button>
             </footer>
           </section>
-          : <section className='textarea__block'
-            onClick={this.startEditing}>
+        ) : (
+          <section className="textarea__block" onClick={this.startEditing}>
             <div
-            dangerouslySetInnerHTML={{__html: renderMarkdown(content)}}
-            className='md__renderer'
+              dangerouslySetInnerHTML={{ __html: renderMarkdown(content) }}
+              className="md__renderer"
             />
-            <div className='typography__utils'>
+            <div className="typography__utils">
               <button
-                type='button'
-                className='typography__btn no-border'
+                type="button"
+                className="typography__btn no-border"
                 onClick={this.startEditing}
               >
-                <img
-                  src={EditIcon}
-                  alt='Edit'
-                />
+                <img src={EditIcon} alt="Edit" />
               </button>
               <button
-                type='button'
-                className='typography__btn no-border'
+                type="button"
+                className="typography__btn no-border"
                 onClick={this.deleteSection}
               >
-                <img
-                  src={DeleteIcon}
-                  alt='Delete'
-                />
+                <img src={DeleteIcon} alt="Delete" />
               </button>
             </div>
           </section>
-        }
+        )}
       </section>
     )
   }

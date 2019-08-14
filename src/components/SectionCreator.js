@@ -5,11 +5,11 @@ import * as TypographyIcon from '../assets/images/icon-typography.svg'
 import * as TextIcon from '../assets/images/icon-text.svg'
 
 class SectionCreator extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
-      sectionMode: null,
+      sectionMode: null
     }
   }
 
@@ -25,50 +25,25 @@ class SectionCreator extends React.Component {
     this.props.addSection('textarea')
   }
 
-  render () {
+  render() {
     return (
-      <section className='section-creator'>
-        {
-          this.state.sectionMode === null &&
+      <section className="section-creator">
+        {this.state.sectionMode === null && (
           <React.Fragment>
-            <button
-              type='button'
-              onClick={this.setColorPaletteBlock}
-            >
-              <img
-                src={ColorPaletteIcon}
-                alt='Color Palette'
-              />
-              <span className='tooltip'>
-                Color Palette
-              </span>
+            <button type="button" onClick={this.setColorPaletteBlock}>
+              <img src={ColorPaletteIcon} alt="Color Palette" />
+              <span className="tooltip">Color Palette</span>
             </button>
-            <button
-              type='button'
-              onClick={this.setTypographyBlock}
-            >
-              <img
-                src={TypographyIcon}
-                alt='Typography'
-              />
-              <span className='tooltip'>
-                Typography
-              </span>
+            <button type="button" onClick={this.setTypographyBlock}>
+              <img src={TypographyIcon} alt="Typography" />
+              <span className="tooltip">Typography</span>
             </button>
-            <button
-              type='button'
-              onClick={this.setTextAreaBlock}
-            >
-              <img
-                src={TextIcon}
-                alt='More'
-              />
-              <span className='tooltip'>
-                Text
-              </span>
+            <button type="button" onClick={this.setTextAreaBlock}>
+              <img src={TextIcon} alt="More" />
+              <span className="tooltip">Text</span>
             </button>
           </React.Fragment>
-        }
+        )}
       </section>
     )
   }

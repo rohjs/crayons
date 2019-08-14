@@ -8,34 +8,30 @@ import * as ColorIcon from '../../../assets/images/icon-color.svg'
 import * as ItalicIcon from '../../../assets/images/icon-italic.svg'
 import * as FormatResetIcon from '../../../assets/images/icon-format-reset.svg'
 import '../../../styles/TypographyInput.css'
-import googleFonts from "../../../assets/google-fonts.json"
+import googleFonts from '../../../assets/google-fonts.json'
 
 class TypographyInput extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
       isEditingTypographyStyleName: false,
-      language: this.props.previewLanguage,
+      language: this.props.previewLanguage
     }
   }
 
-
   delete = () => {
-    const {
-      deleteSection,
-      index,
-    } = this.props
+    const { deleteSection, index } = this.props
 
     deleteSection(index)
   }
 
   updateTypographyStyles = () => {
-    const {
-      updateTypographyStyles
-    } = this.props
+    const { updateTypographyStyles } = this.props
 
-    const newTypographyStyleName = `${this.fontSize.value} — ${this.fontFamily.value}`
+    const newTypographyStyleName = `${this.fontSize.value} — ${
+      this.fontFamily.value
+    }`
 
     updateTypographyStyles({
       typographyStyleName: newTypographyStyleName,
@@ -44,20 +40,15 @@ class TypographyInput extends React.Component {
       fontWeight: this.fontWeight.value,
       lineHeight: this.lineHeight.value,
       letterSpacing: this.letterSpacing.value,
-      color: this.color.value,
+      color: this.color.value
     })
   }
 
   toggleItalic = () => {
-    const {
-      updateTypographyStyles,
-      fontStyle
-    } = this.props
+    const { updateTypographyStyles, fontStyle } = this.props
 
     updateTypographyStyles({
-      fontStyle: fontStyle === 'normal'
-        ? 'italic'
-        : 'normal'
+      fontStyle: fontStyle === 'normal' ? 'italic' : 'normal'
     })
   }
 
@@ -70,55 +61,51 @@ class TypographyInput extends React.Component {
   }
 
   startEditingTypographyStyleName = () => {
-    this.setState({
-      isEditingTypographyStyleName: true,
-    }, () => {
-      this.typographyNameInput.focus()
-    })
+    this.setState(
+      {
+        isEditingTypographyStyleName: true
+      },
+      () => {
+        this.typographyNameInput.focus()
+      }
+    )
   }
 
   stopEditingTypographyStyleName = () => {
     this.setState({
-      isEditingTypographyStyleName: false,
+      isEditingTypographyStyleName: false
     })
   }
 
   updateTypographyStyleName = () => {
-    const {
-      updateTypographyName
-    } = this.props
+    const { updateTypographyName } = this.props
 
     updateTypographyName(this.typographyNameInput.value)
   }
 
   updatePreviewLanguageToKorean = () => {
-    const {
-      updatePreviewLanguage,
-    } = this.props
+    const { updatePreviewLanguage } = this.props
 
     this.setState({
-      language: 'ko',
+      language: 'ko'
     })
 
     updatePreviewLanguage('ko')
   }
 
   updatePreviewLanguageToEnglish = () => {
-    const {
-      updatePreviewLanguage,
-    } = this.props
+    const { updatePreviewLanguage } = this.props
 
     this.setState({
-      language: 'en',
+      language: 'en'
     })
 
     updatePreviewLanguage('en')
   }
 
-  render () {
+  render() {
     const {
       previewText,
-      previewLanguage,
       typographyStyleName,
       fontFamily,
       fontSize,
@@ -126,154 +113,115 @@ class TypographyInput extends React.Component {
       lineHeight,
       letterSpacing,
       color,
-      fontStyle,
+      fontStyle
     } = this.props
 
-    const {
-      isEditingTypographyStyleName,
-      language,
-    } = this.state
+    const { isEditingTypographyStyleName, language } = this.state
 
     return (
-      <section className='typography__input'>
-        <header className='typography__header'>
-          <div className='typography__item'>
+      <section className="typography__input">
+        <header className="typography__header">
+          <div className="typography__item">
             <span>
-              <img
-                src={FontFamilyIcon}
-                alt='Font Family'
-              />
+              <img src={FontFamilyIcon} alt="Font Family" />
             </span>
             <select
-              className='typography__font-family'
+              className="typography__font-family"
               onChange={this.updateTypographyStyles}
               value={fontFamily}
-              ref={select => this.fontFamily = select}
+              ref={select => (this.fontFamily = select)}
             >
-              {
-                Object.entries(googleFonts)
-                  .map(([font, {url}], index) => {
-                    return <option
-                      key={index}
-                      value={font}
-                    >
-                      {font}
-                    </option>
-                  })
-              }
+              {Object.entries(googleFonts).map(([font, { url }], index) => {
+                return (
+                  <option key={index} value={font}>
+                    {font}
+                  </option>
+                )
+              })}
             </select>
           </div>
-          <div className='typography__item'>
+          <div className="typography__item">
             <span>
-              <img
-                src={FontSizeIcon}
-                alt='Font Size'
-              />
+              <img src={FontSizeIcon} alt="Font Size" />
             </span>
             <input
-              type='text'
+              type="text"
               onChange={this.updateTypographyStyles}
-              ref={input => this.fontSize = input}
+              ref={input => (this.fontSize = input)}
               value={fontSize}
-              style={{ width: 55, }}
+              style={{ width: 55 }}
             />
           </div>
-          <div className='typography__item'>
+          <div className="typography__item">
             <span>
-              <img
-                src={FontWeightIcon}
-                alt='Font Weight'
-              />
+              <img src={FontWeightIcon} alt="Font Weight" />
             </span>
             <select
               onChange={this.updateTypographyStyles}
-              ref={select => this.fontWeight = select}
+              ref={select => (this.fontWeight = select)}
               value={fontWeight}
             >
-              <option value='100'>100</option>
-              <option value='200'>200</option>
-              <option value='300'>300</option>
-              <option value='400'>400</option>
-              <option value='500'>500</option>
-              <option value='600'>600</option>
-              <option value='700'>700</option>
-              <option value='800'>800</option>
-              <option value='900'>900</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+              <option value="300">300</option>
+              <option value="400">400</option>
+              <option value="500">500</option>
+              <option value="600">600</option>
+              <option value="700">700</option>
+              <option value="800">800</option>
+              <option value="900">900</option>
             </select>
           </div>
-          <div className='typography__item'>
+          <div className="typography__item">
             <span>
-              <img
-                src={LineHeightIcon}
-                alt='Line Height'
-              />
+              <img src={LineHeightIcon} alt="Line Height" />
             </span>
             <input
-              type='text'
+              type="text"
               onChange={this.updateTypographyStyles}
-              ref={input => this.lineHeight = input}
+              ref={input => (this.lineHeight = input)}
               value={lineHeight}
-              style={{ width: 60, }}
+              style={{ width: 60 }}
             />
           </div>
-          <div className='typography__item'>
+          <div className="typography__item">
             <span>
-              <img
-                src={LetterSpacingIcon}
-                alt='Letter Spacing'
-              />
+              <img src={LetterSpacingIcon} alt="Letter Spacing" />
             </span>
             <input
-              type='text'
+              type="text"
               onChange={this.updateTypographyStyles}
-              ref={input => this.letterSpacing = input}
+              ref={input => (this.letterSpacing = input)}
               value={letterSpacing}
-              style={{ width: 60, }}
+              style={{ width: 60 }}
             />
           </div>
-          <div className='typography__item'>
+          <div className="typography__item">
             <span>
-              <img
-                src={ColorIcon}
-                alt='Color'
-              />
+              <img src={ColorIcon} alt="Color" />
             </span>
             <input
-              type='text'
+              type="text"
               onChange={this.updateTypographyStyles}
-              ref={input => this.color = input}
+              ref={input => (this.color = input)}
               value={color}
-              style={{ width: 85, }}
+              style={{ width: 85 }}
             />
           </div>
-          <div className='typography__item'>
-            <button
-              type='text'
-              onClick={this.toggleItalic}
-            >
-              <img
-                src={ItalicIcon}
-                alt='Italic'
-              />
+          <div className="typography__item">
+            <button type="text" onClick={this.toggleItalic}>
+              <img src={ItalicIcon} alt="Italic" />
             </button>
           </div>
-          <div className='typography__item'>
-            <button
-              type='text'
-              onClick={this.props.resetTypographyStyles}
-            >
-              <img
-                src={FormatResetIcon}
-                alt='Reset Format'
-              />
+          <div className="typography__item">
+            <button type="text" onClick={this.props.resetTypographyStyles}>
+              <img src={FormatResetIcon} alt="Reset Format" />
             </button>
           </div>
-
-
         </header>
 
         <div
-          className='typography__preview'
+          className="typography__preview"
           style={{
             fontFamily: fontFamily,
             fontSize: fontSize,
@@ -281,71 +229,67 @@ class TypographyInput extends React.Component {
             lineHeight: lineHeight,
             letterSpacing: letterSpacing,
             color: color,
-            fontStyle: fontStyle,
+            fontStyle: fontStyle
           }}
         >
-          {
-            language === 'en'
-            ? <p>
-              {previewText.en}
-            </p>
-            : <p>
-              {previewText.ko}
-            </p>
-          }
+          {language === 'en' ? (
+            <p>{previewText.en}</p>
+          ) : (
+            <p>{previewText.ko}</p>
+          )}
         </div>
 
-        <footer className='typography__footer'>
-          {
-            isEditingTypographyStyleName
-            ? <input
-              className='typography__summary__input'
-              ref={input => this.typographyNameInput = input}
+        <footer className="typography__footer">
+          {isEditingTypographyStyleName ? (
+            <input
+              className="typography__summary__input"
+              ref={input => (this.typographyNameInput = input)}
               value={typographyStyleName}
               onChange={this.updateTypographyStyleName}
               onBlur={this.stopEditingTypographyStyleName}
             />
-            : <p
-              className='typography__summary'
+          ) : (
+            <p
+              className="typography__summary"
               onClick={this.startEditingTypographyStyleName}
             >
               {`${typographyStyleName}`}
             </p>
-          }
-          <div className='typography__language'>
-            <div className='typography__language__item'>
+          )}
+          <div className="typography__language">
+            <div className="typography__language__item">
               <input
-                type='radio'
-                value='en'
-                htmlFor='#en'
-                name='language'
+                type="radio"
+                value="en"
+                htmlFor="#en"
+                name="language"
                 onChange={this.updatePreviewLanguageToEnglish}
                 checked={language === 'en' ? true : false}
               />
-              <label id='en'>English</label>
+              <label id="en">English</label>
             </div>
-            <div className='typography__language__item'>
+            <div className="typography__language__item">
               <input
-                type='radio'
-                value='ko'
-                htmlFor='#ko'
-                name='language'
+                type="radio"
+                value="ko"
+                htmlFor="#ko"
+                name="language"
                 onChange={this.updatePreviewLanguageToKorean}
                 checked={language === 'ko' ? true : false}
               />
-              <label id='ko'>한국어</label>
+              <label id="ko">한국어</label>
             </div>
           </div>
           <button
-            type='submit'
-            className='typography__btn'
+            type="submit"
+            className="typography__btn"
             onClick={this.props.deleteSection}
           >
             Cancel
           </button>
           <button
-            type='submit'
-            className='typography__btn'
+            type="submit"
+            className="typography__btn"
             onClick={this.stopEditing}
           >
             Save
