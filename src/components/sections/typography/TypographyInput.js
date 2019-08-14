@@ -20,7 +20,7 @@ class TypographyInput extends React.Component {
     }
   }
 
-  
+
   delete = () => {
     const {
       deleteSection,
@@ -154,7 +154,7 @@ class TypographyInput extends React.Component {
                 Object.entries(googleFonts)
                   .map(([font, {url}], index) => {
                     return <option
-                      key='index'
+                      key={index}
                       value={font}
                     >
                       {font}
@@ -317,9 +317,9 @@ class TypographyInput extends React.Component {
               <input
                 type='radio'
                 value='en'
-                for='#en'
+                htmlFor='#en'
                 name='language'
-                onClick={this.updatePreviewLanguageToEnglish}
+                onChange={this.updatePreviewLanguageToEnglish}
                 checked={language === 'en' ? true : false}
               />
               <label id='en'>English</label>
@@ -328,9 +328,9 @@ class TypographyInput extends React.Component {
               <input
                 type='radio'
                 value='ko'
-                for='#ko'
+                htmlFor='#ko'
                 name='language'
-                onClick={this.updatePreviewLanguageToKorean}
+                onChange={this.updatePreviewLanguageToKorean}
                 checked={language === 'ko' ? true : false}
               />
               <label id='ko'>한국어</label>

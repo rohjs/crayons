@@ -1,5 +1,4 @@
 import React from 'react'
-import fire from './fire'
 import AppLayout from './components/layout/AppLayout'
 import SectionCreator from './components/SectionCreator'
 import './styles/App.css'
@@ -34,12 +33,6 @@ class App extends React.Component {
     this.setState({
       styleguideTitle: this.titleInput.value,
     })
-  }
-
-  saveContent = (e) => {
-    e.preventDefault()
-
-    fire.database().ref('sections').push(this.state.sections)
   }
 
   addSection = (sectionMode) => {
@@ -122,14 +115,6 @@ class App extends React.Component {
           }
           <SectionCreator addSection={this.addSection} />
         </section>
-
-        <button type='submit'
-          className='btn-submit'
-          onClick={this.saveContent}
-        >
-          Save
-        </button>
-
       </AppLayout>
     )
   }
