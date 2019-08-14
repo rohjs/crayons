@@ -72,7 +72,9 @@ class TextareaSection extends React.Component {
             <header className="md__editor__header">
               <h1>
                 Markdown Editor — Press Cmd + Enter to save{' '}
-                <span role="img">❤️</span>
+                <span role="img" aria-label="heart">
+                  ❤️
+                </span>
               </h1>
             </header>
             <TextArea

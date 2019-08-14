@@ -7,112 +7,110 @@ import TypographySection from './components/sections/TypographySection'
 import TextareaSection from './components/sections/TextareaSection'
 
 class App extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
       isEditingTitle: true,
       styleguideTitle: '',
-      sections: [],
+      sections: []
     }
   }
 
   startEditingTitle = () => {
     this.setState({
-      isEditing: true,
+      isEditing: true
     })
   }
 
   stopEditingTitle = () => {
     this.setState({
-      isEditing: false,
+      isEditing: false
     })
   }
 
   updateTitle = () => {
     this.setState({
-      styleguideTitle: this.titleInput.value,
+      styleguideTitle: this.titleInput.value
     })
   }
 
-  addSection = (sectionMode) => {
+  addSection = sectionMode => {
     this.setState({
       sections: [
         ...this.state.sections,
         {
           mode: sectionMode,
-          id: Date.now(),
-        },
-      ],
+          id: Date.now()
+        }
+      ]
     })
   }
 
-  deleteSection = (index) => {
-    const newSections = [
-      ...this.state.sections,
-    ]
+  deleteSection = index => {
+    const newSections = [...this.state.sections]
 
     newSections.splice(index, 1)
 
     this.setState({
-      sections: newSections,
+      sections: newSections
     })
   }
 
-  render () {
-    const {
-      styleguideTitle,
-    } = this.state
+  render() {
+    const { styleguideTitle } = this.state
 
     return (
       <AppLayout styleguideTitle={styleguideTitle}>
-
-        <header className='page__header'>
-          {
-            this.state.isEditingTitle
-            ? <input
-              type='text'
-              className='page__title'
-              placeholder='Untitled Styleguide'
+        <header className="page__header">
+          {this.state.isEditingTitle ? (
+            <input
+              type="text"
+              className="page__title"
+              placeholder="Untitled Styleguide"
               onChange={this.updateTitle}
               onBlur={this.stopEditingTitle}
               defaultValue={styleguideTitle}
-              ref={input => this.titleInput = input}
+              ref={input => (this.titleInput = input)}
             />
-            : <h1
-              className='page__title'
-              onClick={this.startEditingTitle}
-            >
-              { this.props.styleguideTitle }
+          ) : (
+            <h1 className="page__title" onClick={this.startEditingTitle}>
+              {this.props.styleguideTitle}
             </h1>
-          }
+          )}
         </header>
 
         <section>
-          {
-            this.state.sections.map((section, index) => {
-              switch (section.mode) {
-                case 'color-palette':
-                  return <ColorPaletteSection
+          {this.state.sections.map((section, index) => {
+            switch (section.mode) {
+              case 'color-palette':
+                return (
+                  <ColorPaletteSection
                     key={index}
                     deleteSection={this.deleteSection}
                     index={index}
-                    />
-                case 'typography':
-                  return <TypographySection
+                  />
+                )
+              case 'typography':
+                return (
+                  <TypographySection
                     key={index}
                     deleteSection={this.deleteSection}
                     index={index}
-                    />
-                case 'textarea':
-                  return <TextareaSection
+                  />
+                )
+              case 'textarea':
+                return (
+                  <TextareaSection
                     key={index}
                     deleteSection={this.deleteSection}
                     index={index}
-                    />
-              }
-            })
-          }
+                  />
+                )
+              default:
+                return ''
+            }
+          })}
           <SectionCreator addSection={this.addSection} />
         </section>
       </AppLayout>

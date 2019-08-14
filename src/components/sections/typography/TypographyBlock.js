@@ -88,8 +88,7 @@ class TypographyBlock extends React.Component {
       letterSpacing,
       lineHeight,
       color,
-      fontStyle,
-      deleteSection
+      fontStyle
     } = this.props
 
     const { showCopyMessage, isEditing } = this.state
