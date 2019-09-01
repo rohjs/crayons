@@ -1,16 +1,16 @@
 import React from 'react'
-import * as FontFamilyIcon from '../../../assets/images/icon-font-family.svg'
-import * as FontSizeIcon from '../../../assets/images/icon-font-size.svg'
-import * as FontWeightIcon from '../../../assets/images/icon-font-weight.svg'
-import * as LineHeightIcon from '../../../assets/images/icon-line-height.svg'
-import * as LetterSpacingIcon from '../../../assets/images/icon-letter-spacing.svg'
-import * as ColorIcon from '../../../assets/images/icon-color.svg'
-import * as ItalicIcon from '../../../assets/images/icon-italic.svg'
-import * as FormatResetIcon from '../../../assets/images/icon-format-reset.svg'
 import '../../../styles/TypographyInput.css'
 import googleFonts from '../../../assets/google-fonts.json'
+import { ReactComponent as FontFamilyIcon } from '../../../assets/images/icon-font-family.svg'
+import { ReactComponent as FontSizeIcon } from '../../../assets/images/icon-font-size.svg'
+import { ReactComponent as FontWeightIcon } from '../../../assets/images/icon-font-weight.svg'
+import { ReactComponent as LineHeightIcon } from '../../../assets/images/icon-line-height.svg'
+import { ReactComponent as LetterSpacingIcon } from '../../../assets/images/icon-letter-spacing.svg'
+import { ReactComponent as ColorIcon } from '../../../assets/images/icon-color.svg'
+import { ReactComponent as ItalicIcon } from '../../../assets/images/icon-italic.svg'
+import { ReactComponent as FormatResetIcon } from '../../../assets/images/icon-format-reset.svg'
 
-class TypographyInput extends React.Component {
+export default class TypographyInput extends React.Component {
   constructor(props) {
     super(props)
 
@@ -29,9 +29,7 @@ class TypographyInput extends React.Component {
   updateTypographyStyles = () => {
     const { updateTypographyStyles } = this.props
 
-    const newTypographyStyleName = `${this.fontSize.value} — ${
-      this.fontFamily.value
-    }`
+    const newTypographyStyleName = `${this.fontSize.value} — ${this.fontFamily.value}`
 
     updateTypographyStyles({
       typographyStyleName: newTypographyStyleName,
@@ -123,7 +121,7 @@ class TypographyInput extends React.Component {
         <header className="typography__header">
           <div className="typography__item">
             <span>
-              <img src={FontFamilyIcon} alt="Font Family" />
+              <FontFamilyIcon />
             </span>
             <select
               className="typography__font-family"
@@ -142,7 +140,7 @@ class TypographyInput extends React.Component {
           </div>
           <div className="typography__item">
             <span>
-              <img src={FontSizeIcon} alt="Font Size" />
+              <FontSizeIcon />
             </span>
             <input
               type="text"
@@ -154,7 +152,7 @@ class TypographyInput extends React.Component {
           </div>
           <div className="typography__item">
             <span>
-              <img src={FontWeightIcon} alt="Font Weight" />
+              <FontWeightIcon />
             </span>
             <select
               onChange={this.updateTypographyStyles}
@@ -174,7 +172,7 @@ class TypographyInput extends React.Component {
           </div>
           <div className="typography__item">
             <span>
-              <img src={LineHeightIcon} alt="Line Height" />
+              <LineHeightIcon />
             </span>
             <input
               type="text"
@@ -186,7 +184,7 @@ class TypographyInput extends React.Component {
           </div>
           <div className="typography__item">
             <span>
-              <img src={LetterSpacingIcon} alt="Letter Spacing" />
+              <LetterSpacingIcon />
             </span>
             <input
               type="text"
@@ -198,7 +196,7 @@ class TypographyInput extends React.Component {
           </div>
           <div className="typography__item">
             <span>
-              <img src={ColorIcon} alt="Color" />
+              <ColorIcon />
             </span>
             <input
               type="text"
@@ -210,12 +208,12 @@ class TypographyInput extends React.Component {
           </div>
           <div className="typography__item">
             <button type="text" onClick={this.toggleItalic}>
-              <img src={ItalicIcon} alt="Italic" />
+              <ItalicIcon />
             </button>
           </div>
           <div className="typography__item">
             <button type="text" onClick={this.props.resetTypographyStyles}>
-              <img src={FormatResetIcon} alt="Reset Format" />
+              <FormatResetIcon />
             </button>
           </div>
         </header>
@@ -299,5 +297,3 @@ class TypographyInput extends React.Component {
     )
   }
 }
-
-export default TypographyInput

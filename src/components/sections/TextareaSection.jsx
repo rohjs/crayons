@@ -2,10 +2,10 @@ import React from 'react'
 import TextArea from 'better-react-textarea-autosize'
 import renderMarkdown from '../../lib/renderMarkdown'
 import '../../styles/TextareaSection.css'
-import * as EditIcon from '../../assets/images/icon-edit.svg'
-import * as DeleteIcon from '../../assets/images/icon-delete.svg'
+import { ReactComponent as EditIcon } from '../../assets/images/icon-edit.svg'
+import { ReactComponent as DeleteIcon } from '../../assets/images/icon-delete.svg'
 
-class TextareaSection extends React.Component {
+export default class TextareaSection extends React.Component {
   constructor(props) {
     super(props)
 
@@ -102,14 +102,14 @@ class TextareaSection extends React.Component {
                 className="typography__btn no-border"
                 onClick={this.startEditing}
               >
-                <img src={EditIcon} alt="Edit" />
+                <EditIcon />
               </button>
               <button
                 type="button"
                 className="typography__btn no-border"
                 onClick={this.deleteSection}
               >
-                <img src={DeleteIcon} alt="Delete" />
+                <DeleteIcon />
               </button>
             </div>
           </section>
@@ -118,5 +118,3 @@ class TextareaSection extends React.Component {
     )
   }
 }
-
-export default TextareaSection

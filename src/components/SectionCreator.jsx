@@ -1,8 +1,8 @@
 import React from 'react'
 import '../styles/SectionCreator.css'
-import * as ColorPaletteIcon from '../assets/images/icon-color-palette.svg'
-import * as TypographyIcon from '../assets/images/icon-typography.svg'
-import * as TextIcon from '../assets/images/icon-text.svg'
+import { ReactComponent as ColorPaletteIcon } from '../assets/images/icon-color-palette.svg'
+import { ReactComponent as TypographyIcon } from '../assets/images/icon-typography.svg'
+import { ReactComponent as TextIcon } from '../assets/images/icon-text.svg'
 
 export const sectionTypes = {
   COLOR_PALLETTE_SECTION: 'COLOR_PALLETTE_SECTION',
@@ -10,7 +10,7 @@ export const sectionTypes = {
   TEXT_CONTENT_SECTION: 'TEXT_CONTENT_SECTION'
 }
 
-class SectionCreator extends React.Component {
+export default class SectionCreator extends React.Component {
   constructor(props) {
     super(props)
 
@@ -35,24 +35,22 @@ class SectionCreator extends React.Component {
     return (
       <section className="section-creator">
         {this.state.sectionMode === null && (
-          <React.Fragment>
+          <>
             <button type="button" onClick={this.setColorPaletteSection}>
-              <img src={ColorPaletteIcon} alt="Color Palette" />
+              <ColorPaletteIcon />
               <span className="tooltip">Color Palette</span>
             </button>
             <button type="button" onClick={this.setTypographyRulesContent}>
-              <img src={TypographyIcon} alt="Typography" />
+              <TypographyIcon />
               <span className="tooltip">Typography</span>
             </button>
             <button type="button" onClick={this.setTextContentSection}>
-              <img src={TextIcon} alt="More" />
+              <TextIcon />
               <span className="tooltip">Text</span>
             </button>
-          </React.Fragment>
+          </>
         )}
       </section>
     )
   }
 }
-
-export default SectionCreator

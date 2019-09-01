@@ -1,12 +1,12 @@
 import React from 'react'
 import AppLayout from './components/layout/AppLayout'
-import SectionCreator from './components/SectionCreator'
+import SectionCreator, { sectionTypes } from './components/SectionCreator'
 import ColorPaletteSection from './components/sections/ColorPaletteSection'
 import TypographySection from './components/sections/TypographySection'
 import TextareaSection from './components/sections/TextareaSection'
 import './styles/App.css'
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props)
 
@@ -83,7 +83,7 @@ class App extends React.Component {
         <section>
           {this.state.sections.map((section, index) => {
             switch (section.mode) {
-              case 'color-palette':
+              case sectionTypes.COLOR_PALLETTE_SECTION:
                 return (
                   <ColorPaletteSection
                     key={index}
@@ -91,7 +91,7 @@ class App extends React.Component {
                     index={index}
                   />
                 )
-              case 'typography':
+              case sectionTypes.TYPPOGRAPHY_RULES_SECTION:
                 return (
                   <TypographySection
                     key={index}
@@ -99,7 +99,7 @@ class App extends React.Component {
                     index={index}
                   />
                 )
-              case 'textarea':
+              case sectionTypes.TEXT_CONTENT_SECTION:
                 return (
                   <TextareaSection
                     key={index}
@@ -117,5 +117,3 @@ class App extends React.Component {
     )
   }
 }
-
-export default App

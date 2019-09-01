@@ -1,8 +1,8 @@
 import React from 'react'
 import TypographyInput from './typography/TypographyInput'
 import TypographyBlock from './typography/TypographyBlock'
-import * as EditIcon from '../../assets/images/icon-edit.svg'
-import * as DeleteIcon from '../../assets/images/icon-delete.svg'
+import { ReactComponent as EditIcon } from '../../assets/images/icon-edit.svg'
+import { ReactComponent as DeleteIcon } from '../../assets/images/icon-delete.svg'
 
 const defaultTypographyStyles = {
   previewLanguage: 'en',
@@ -133,14 +133,14 @@ class TypographySection extends React.Component {
                   className="typography__btn no-border"
                   onClick={this.startEditing}
                 >
-                  <img src={EditIcon} alt="Edit" />
+                  <EditIcon />
                 </button>
                 <button
                   type="button"
                   className="typography__btn no-border"
                   onClick={this.deleteSection}
                 >
-                  <img src={DeleteIcon} alt="Delete" />
+                  <DeleteIcon />
                 </button>
               </div>
             </div>

@@ -1,8 +1,8 @@
 import React from 'react'
 import ColorPaletteInput from './color/ColorPaletteInput'
 import ColorChip from './color/ColorChip'
-import * as EditIcon from '../../assets/images/icon-edit.svg'
-import * as DeleteIcon from '../../assets/images/icon-delete.svg'
+import { ReactComponent as EditIcon } from '../../assets/images/icon-edit.svg'
+import { ReactComponent as DeleteIcon } from '../../assets/images/icon-delete.svg'
 import '../../styles/ColorPaletteSection.css'
 
 const colorRegExp = /#[\da-f]{6}|#[\da-f]{3}|rgb\(\d{1,3},\d{1,3},\d{1,3}\)|rgba\(\d{1,3},\d{1,3},\d{1,3},(\d|\d?\.\d)\)/g
@@ -110,14 +110,14 @@ class ColorPalette extends React.Component {
                   className="color-chips__btn"
                   onClick={this.startEditing}
                 >
-                  <img src={EditIcon} alt="Edit" />
+                  <EditIcon />
                 </button>
                 <button
                   type="button"
                   className="color-chips__btn"
                   onClick={this.delete}
                 >
-                  <img src={DeleteIcon} alt="Delete" />
+                  <DeleteIcon />
                 </button>
               </div>
             </div>
