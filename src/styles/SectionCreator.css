@@ -14,6 +14,11 @@
   cursor: pointer;
 }
 
+.section-creator button svg {
+  width: 100%;
+  height: auto;
+}
+
 .section-creator button .tooltip {
   position: absolute;
   bottom: 30px;
@@ -43,10 +48,9 @@
 }
 
 .section-creator button:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .section-creator button:hover .tooltip {
   opacity: 1;
 }
-
